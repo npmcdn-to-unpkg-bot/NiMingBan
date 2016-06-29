@@ -13,7 +13,7 @@ class InviteCodeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("invite_codes")->delete();
+        // DB::table("invite_codes")->delete();
 
         // 批量生成1000条邀请码
         for($i=0; $i<1000; $i++){

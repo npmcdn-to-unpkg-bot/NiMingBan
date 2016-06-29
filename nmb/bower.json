@@ -1,0 +1,25 @@
+{
+  "name": "nmb",
+  "description": "nope",
+  "main": "public/index.php",
+  "authors": [
+    "Makoto"
+  ],
+  "license": "UNLICENSE",
+  "keywords": [
+    "nimingban"
+  ],
+  "homepage": "https://github.com/fuxinlei/NiMingBan",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resource/assets/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "^1.0.25",
+    "normalize-css": "normalize.css#^4.1.1"
+  }
+}

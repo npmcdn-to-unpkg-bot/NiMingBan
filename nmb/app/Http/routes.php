@@ -12,9 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
+Route::resource('/posts', 'PostController');

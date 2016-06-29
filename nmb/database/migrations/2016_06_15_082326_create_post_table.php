@@ -19,8 +19,8 @@ class CreatePostTable extends Migration
             $table->string("title")->nullable();
             $table->string("image")->nullable();
             $table->text("content");
-            $table->integer("top_post_id")->unsigned();
-            $table->integer("board_id")->unsigned();
+            $table->integer("top_post_id")->unsigned()->nullable();
+            $table->integer("board_id")->unsigned()->nullable();
             $table->timestamps();
 
             $table->index('top_post_id');
