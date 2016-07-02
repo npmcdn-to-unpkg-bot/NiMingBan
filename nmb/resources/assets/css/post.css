@@ -1,0 +1,66 @@
+.content {
+  margin-top: 20px;
+}
+
+.posts-entry {
+  margin-bottom: 30px;
+}
+
+.post {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 0px;
+  display: flex;
+  min-height: 100px;
+}
+.post.first {
+  padding-top: 0px;
+}
+.post.item {
+  padding-left: 40px;
+}
+
+.post img {
+  max-width: 100px;
+  max-height: 100px;
+  vertical-align: text-top;
+  float: left;
+  flex: none;
+}
+.post > span {
+  position: relative;
+  flex-flow: row;
+  margin-left: 20px;
+}
+
+.post > span .head{
+  /*position: absolute;
+  top: 0px;*/
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 10px;
+  color: gainsboro;
+}
+.post > span .options {
+  position: absolute;
+  bottom: 0px;
+  font-weight: lighter;
+  font-size: 10px;
+  color: gainsboro;
+}
+.post > span .head > span,
+.post > span .options > span {
+  margin-right: 5px;
+}
+
+.post > span .head > span.title{
+  color:slategray;
+}
+.post > span .head > span.nick{
+  color:dimgray;
+}
+.post > span .head > span.datetime,
+.post > span .head > span.uid,
+.post > span .head > span.pno{
+  font-weight: normal;
+}
