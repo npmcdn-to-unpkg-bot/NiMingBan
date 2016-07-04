@@ -6,6 +6,14 @@
 @section("css")
 <link rel="stylesheet" href="{{ elixir('assets/css/post.css') }}">
 @endsection
+@section("config_js")
+<script>
+    config = {};
+    config.current_board = "{{ $board_id }}";
+    config.current_page = "{{ $page }}";
+    config.current_post_id = "{{ $post_id }}";
+</script>
+@endsection
 
 @section("content")
 <div class="header">

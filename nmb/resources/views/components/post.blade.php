@@ -2,7 +2,7 @@
     <div class="posts-entry pure-u-1 pure-u-md-1" v-for="post in posts">
         <div class="post first">
             <template v-if="post.image">
-                <img src="http://cdn.ovear.info:8998/image/2016-06-26/576f4980070d7.jpg">
+                <img src="@{{ post.image }}">
             </template>
             <span>
                 <div class="head">
@@ -51,7 +51,12 @@
                 </div>
             </span>
         </div>
-        <div class="post item" v-for="subpost in post.subposts">
+        <div class="post tooltip" v-if="(post.hidden_count > 0) & (post_id == 0)">
+            <a href="#">
+                …有@{{ post.hidden_count }}条串因为过长而被隐藏，点击进入串单页查看
+            </a>
+        </div>
+        <div class="post item" v-for="subpost in post.subs">
             <template v-if="subpost.image">
                 <img src="http://cdn.ovear.info:8998/image/2016-06-26/576f4980070d7.jpg">
             </template>
@@ -104,5 +109,5 @@
         </div>
 
     </div>
-
+    @include("components.pagination")
 </div>

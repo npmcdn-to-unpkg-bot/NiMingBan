@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('post_list');
+    return view('home');
 });
+
+Route::get("/board", "RenderController@board");
 
 Route::group(["prefix" => "api/v1"], function(){
     Route::resource('/posts', 'api\v1\PostController');

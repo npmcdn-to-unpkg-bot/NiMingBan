@@ -12,7 +12,12 @@
             <li class="pure-menu-item"
                 v-bind:class="{'pure-menu-item': !item.is_top, 'menu-item-divided': item.is_top}"
                 v-for="item in items">
-                <a href="#" class="pure-menu-link">@{{ item.name }}</a>
+                <a
+                    href="/board/?board_id=@{{ item.id }}"
+                    class="pure-menu-link"
+                    v-bind:class="{'pure-menu-selected': item.id == cbid}"
+                >
+                    @{{ item.name }}</a>
             </li>
         </ul>
     </div>
