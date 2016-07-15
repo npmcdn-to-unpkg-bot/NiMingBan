@@ -3,7 +3,12 @@
     new Vue({
         el: '.posts-board',
         data: {
-            posts: []
+            posts: [],
+            board_id: "0",
+            page: "1",
+            post_id: "0",
+            board_obj: {},
+            paginate: {}
         },
         ready: function(){
           var options = {};
@@ -16,60 +21,57 @@
           this.$set("page", Number(config.current_page));
           this.$set("post_id", Number(config.current_post_id));
 
+          this.$http.get('/api/v1/boards').then(function(response){
+            var board_obj = response.json();
+            this.$set("board_obj", board_obj);
+
+          }, function(response){});
+
           var url = "/api/v1/posts"
           if(this.post_id > 0){
             url = url + "/" + this.post_id;
           }
 
           this.$http.get(url, options).then(function(response){
+            // 文章列表
             var post_list_obj = response.json();
             // console.log(post_list_obj);
             this.$set("posts", post_list_obj.data);
             this.$set("paginate", post_list_obj.paginate);
 
-            // paginate url
+            var pagination = UIkit.pagination(
+                              ".pagination > .uk-pagination",
+                              {
+                                "pages" : this.paginate.pages,
+                                "currentPage" : this.paginate.current_page - 1,
+                                "onSelectPage": this.reload_content
+                              }
+                            );
+
+            // // paginate url
+            // var base_paginate_url = "/board/?";
+            // base_paginate_url += "board_id=" + this.board_id;
+            // base_paginate_url += "&";
+            // base_paginate_url += "post_id=" + this.post_id;
+            //
+
+          }, function(response){});
+        },
+        methods:{
+          reload_content: function(page_index){
+            var page = page_index + 1;
             var base_paginate_url = "/board/?";
             base_paginate_url += "board_id=" + this.board_id;
             base_paginate_url += "&";
             base_paginate_url += "post_id=" + this.post_id;
 
-            this.$set(
-              "paginate.last_page_url",
-              base_paginate_url+"&page="+this.paginate.last_page_num
-            );
-            this.$set(
-              "paginate.first_page_url",
-              base_paginate_url+"&page=1"
-            );
+            page_url = base_paginate_url + "&page=" + page;
 
+            window.location.href = page_url;
 
-            if(post_list_obj.paginate.has_prev_page){
-              this.$set(
-                "paginate.prev_page_url",
-                base_paginate_url+"&page="+(this.page-1)
-              );
-            }else{
-              this.$set(
-                "paginate.prev_page_url",
-                "javascript:;"
-              );
-            }
-
-            if(post_list_obj.paginate.has_next_page){
-              this.$set(
-                "paginate.next_page_url",
-                base_paginate_url+"&page="+(this.page+1)
-              );
-            }else{
-              this.$set(
-                "paginate.next_page_url",
-                "javascript:;"
-              );
-            }
-
-          }, function(response){});
-
+          }
         }
+
     });
 
 }(this, this.document));

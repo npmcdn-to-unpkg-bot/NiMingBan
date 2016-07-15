@@ -9,12 +9,18 @@
         @yield("config_js")
     </head>
     <body>
-        <div id="layout">
+        <div class="uk-grid">
             @include("components.menu")
-            <div id="main">
+            <div id="main" class='uk-width-5-6'>
                 @yield("content")
             </div>
         </div>
+
+        {{--
+            @include("components.new")
+            @include("components.menu")
+            --}}
+
         <script src="{{ elixir('assets/js/vue.min.js') }}"></script>
         <script src="{{ elixir('assets/js/vue-resource.min.js') }}"></script>
         <script src="{{ elixir('assets/js/base.js') }}"></script>

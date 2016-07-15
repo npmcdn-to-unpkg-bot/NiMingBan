@@ -16,17 +16,9 @@
 @endsection
 
 @section("content")
-<div class="header">
-    <h3>综合板块</h3>
-    <h4>游乐场哦~</h4>
-    <p>
-        我来看看多行文字~
-    <p/>
-    <p>
-        案发发呆~sadfafasdf
-        打发的是范德萨发的发
-        adfsdafafasdfasfdsa
-    </p>
+<div class="header uk-width-1-3 uk-container-center uk-text-center">
+    <!-- <h1>综合板块</h1> -->
+    
 </div>
 <div class="content">
     @include("components.post")

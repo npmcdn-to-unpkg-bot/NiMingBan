@@ -1,0 +1,10 @@
+.new {
+  position: fixed;
+}
+.new.button {
+  bottom: 10px;
+  right: 10px;
+}
+.new.form {
+  bottom: 100px;
+}

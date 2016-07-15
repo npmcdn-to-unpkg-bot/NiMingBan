@@ -28,12 +28,12 @@ class PostController extends Controller
             ->paginate(15);
 
 
-        $last_page = $post_list_obj->lastPage();
         $current_page = $post_list_obj->currentPage();
-        $result["paginate"]["has_prev_page"] = $current_page > 1;
-        $result["paginate"]["has_next_page"] = $current_page < $last_page;
-        $result["paginate"]["last_page_num"] = $last_page;
-        $result["paginate"]["page"] = $current_page;
+        $pages = $post_list_obj->lastPage();
+
+        $result["paginate"]["current_page"] = $current_page;
+        $result["paginate"]["pages"] = $pages;
+
 
         foreach ($post_list_obj as $post_obj) {
             $post_obj->subs = $post_obj->get_preview_subs();
@@ -72,12 +72,11 @@ class PostController extends Controller
         $post_obj->subs = $sub_list;
         array_push($result["data"], $post_obj);
 
-        $last_page = $post_sub_obj_list->lastPage();
         $current_page = $post_sub_obj_list->currentPage();
-        $result["paginate"]["has_prev_page"] = $current_page > 1;
-        $result["paginate"]["has_next_page"] = $current_page < $last_page;
-        $result["paginate"]["last_page_num"] = $last_page;
-        $result["paginate"]["page"] = $current_page;
+        $pages = $post_sub_obj_list->lastPage();
+
+        $result["paginate"]["current_page"] = $current_page;
+        $result["paginate"]["pages"] = $pages;
 
         return $result;
 

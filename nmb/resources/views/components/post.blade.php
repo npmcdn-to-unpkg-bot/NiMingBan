@@ -1,5 +1,5 @@
-<div class="posts-board pure-g">
-    <div class="posts-entry pure-u-1 pure-u-md-1" v-for="post in posts">
+<div class="posts-board uk-container">
+    <div class="posts-entry uk-width-1-1" v-for="post in posts">
         <div class="post first">
             <template v-if="post.image">
                 <img src="@{{ post.image }}">
@@ -52,8 +52,8 @@
             </span>
         </div>
         <div class="post tooltip" v-if="(post.hidden_count > 0) & (post_id == 0)">
-            <a href="#">
-                …有@{{ post.hidden_count }}条串因为过长而被隐藏，点击进入串单页查看
+            <a href="/board?board={{ $board_id}}&post_id=@{{ post.id }}&page=1">
+                …有@{{ post.hidden_count }}条被隐藏，点击进入详情页查看
             </a>
         </div>
         <div class="post item" v-for="subpost in post.subs">

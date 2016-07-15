@@ -1,20 +1,25 @@
 (function (window, document) {
-
     var menu_obj = new Vue({
         el: '#menu',
         data: {
-            items: []
+            items: [],
+            cbid: "0"
         },
         ready: function(){
           if(!config){
             config = {};
             config.current_board = 0;
           }
+          console.log(config.current_board);
           this.$set("cbid", config.current_board);
 
           this.$http.get('/api/v1/boards').then(function(response){
-            var item_list_obj = response.json();
-            this.$set("items", item_list_obj.list);
+            var items = response.json();
+            this.$set("items", items);
+            this.$nextTick(function () {
+              this.$log("items");
+              UIkit.nav(".nav > .uk-nav");
+            });
           }, function(response){});
         }
     });

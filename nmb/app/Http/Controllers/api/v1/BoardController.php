@@ -12,24 +12,13 @@ use App\Board;
 
 class BoardController extends Controller
 {
-    public function index(Request $request){
-        $board_list = [];
+    public function index(){
 
-        $boards = Board::whereNull("board_id")
-            ->orderBy("order", "asc")
-            ->get();
-        foreach ($boards as $board) {
-            array_push($board_list, $board);
-            foreach ($board->subboards as $subboard) {
-                array_push($board_list, $subboard);
-            }
-        }
-
-        return response()->json(
-            [
-                "list" => $board_list
-            ]
-        );
+        $boards = Board::with(["subboards" => function($query){
+            $query->orderBy("order","asc");
+        }])->whereNull("board_id")
+        ->orderBy("order", "asc")->get();
+        return $boards;
     }
 
 }

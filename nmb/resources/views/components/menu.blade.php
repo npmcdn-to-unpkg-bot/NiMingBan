@@ -1,24 +1,21 @@
-
-<!-- Menu toggle -->
-<a href="#menu" id="menuLink" class="menu-link">
-<!-- Hamburger icon -->
-    <span></span>
-</a>
-<div id="menu">
-    <div class="pure-menu">
-        <a class="pure-menu-heading" href="#">匿名板</a>
-
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item"
-                v-bind:class="{'pure-menu-item': !item.is_top, 'menu-item-divided': item.is_top}"
-                v-for="item in items">
-                <a
-                    href="/board/?board_id=@{{ item.id }}"
-                    class="pure-menu-link"
-                    v-bind:class="{'pure-menu-selected': item.id == cbid}"
-                >
-                    @{{ item.name }}</a>
+<div id="menu" class="uk-width-1-6">
+  <div class="header uk-text-center">
+    Makoto的匿名板
+  </div>
+  <div class="nav">
+    <ul class="uk-nav uk-nav-side uk-nav-parent-icon">
+        <li class="" v-for="item in items" :class="{'uk-parent': item.subboards.length > 0}">
+          <a href="#"
+            :href="item.subboards.length == 0 ? '/board/?board_id='+ item.id : '#' "
+            >
+            @{{ item.name }}
+          </a>
+          <ul class="uk-nav-sub" v-if="item.subboards.length > 0">
+            <li v-for="sub_item in item.subboards">
+              <a href="#">@{{ sub_item.name }}</a>
             </li>
-        </ul>
-    </div>
+          </ul>
+        </li>
+    </ul>
+  </div>
 </div>
