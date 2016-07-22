@@ -15,12 +15,7 @@
                 @yield("content")
             </div>
         </div>
-
-        {{--
-            @include("components.new")
-            @include("components.menu")
-            --}}
-
+        @include("components.new")
         <script src="{{ elixir('assets/js/vue.min.js') }}"></script>
         <script src="{{ elixir('assets/js/vue-resource.min.js') }}"></script>
         <script src="{{ elixir('assets/js/base.js') }}"></script>

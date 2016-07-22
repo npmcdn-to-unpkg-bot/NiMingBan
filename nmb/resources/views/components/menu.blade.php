@@ -12,7 +12,7 @@
           </a>
           <ul class="uk-nav-sub" v-if="item.subboards.length > 0">
             <li v-for="sub_item in item.subboards">
-              <a href="#">@{{ sub_item.name }}</a>
+              <a href="#" :href="'/board/?board_id=' + sub_item.id ">@{{ sub_item.name }}</a>
             </li>
           </ul>
         </li>
