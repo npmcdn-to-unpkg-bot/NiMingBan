@@ -158,6 +158,14 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * third party service providers
+         */
+        itbdw\QiniuStorage\QiniuFilesystemServiceProvider::class,
+
+
+
+
     ],
 
     /*

@@ -45,8 +45,48 @@ class PostController extends Controller
 
     public function store(Request $request){
         // post create
-        $input = $request->all();
-        return Post::create($input)->toJson();
+        // $input = $request->all();
+        $data = [];
+        // return Post::create($input)->toJson();
+        if($request->has("allFiles")){
+            $img_b64_p = $request->input("allFiles.0");
+            $img_b64 = substr($img_b64_p, strpos($img_b64_p, ","));
+            $image_bytes = base64_decode($img_b64);
+
+            $disk = \Storage::disk('qiniu');
+
+            $file_name = str_replace(".", "", gettimeofday(true)) . ".png";
+
+            $put_result = $disk->put($file_name, $image_bytes);
+
+            if (!$put_result) {
+                return [
+                    "status" => false,
+                    "error" => "图片上传失败"
+                ];
+            }
+            $download_url = $disk->getDriver()->downloadUrl($file_name);
+
+            // unset($input["allFiles"]);
+            $data["image"] = $download_url;
+        }else {
+            $data["image"] = null;
+        }
+
+
+        if ($request->input("post_id", "0") != "0") {
+            $data["post_id"] = $request->input("post_id", "0");
+        }
+        // $request->input("board_id")
+        $data["title"] = $request->input("title", null);
+        $data["email"] = $request->input("email", null);
+        $data["nickname"] = $request->input("nickname", null);
+        $data["content"] = $request->input("content", "");
+        $data["board_id"] = $request->input("board_id", null);
+        $data["user_id"] = $request->input("user_id", null);
+
+        return Post::create($data)->toJson();
+        // return $data;
     }
 
     public function update(Request $request){

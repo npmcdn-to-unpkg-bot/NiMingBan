@@ -1,5 +1,5 @@
 (function (window, document) {
-    var menu_obj = new Vue({
+    new Vue({
         el: '#menu',
         data: {
             items: [],

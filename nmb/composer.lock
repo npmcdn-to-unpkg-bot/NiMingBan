@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8883d1d0c06ea2f75294e587238d9b9f",
-    "content-hash": "d8a2f3f6ad81e1db90fd26d6a0e88bb1",
+    "hash": "a222a9e17d642bcddbe1c7e87b2e8632",
+    "content-hash": "19bcb9d71142d9a66298c1fc734b92d4",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -657,6 +657,64 @@
             "description": "A Base Security Library",
             "homepage": "https://github.com/ircmaxell/PHP-SecurityLib",
             "time": "2013-04-30 18:00:34"
+        },
+        {
+            "name": "itbdw/laravel-storage-qiniu",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itbdw/laravel-storage-qiniu.git",
+                "reference": "d812d2d2ecefa36420f2aad02d4e745546e6b14e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/itbdw/laravel-storage-qiniu/d812d2d2ecefa36420f2aad02d4e745546e6b14e.zip",
+                "reference": "d812d2d2ecefa36420f2aad02d4e745546e6b14e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "qiniu/php-sdk": "~7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "itbdw\\QiniuStorage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zgldh",
+                    "email": "zgldh@hotmail.com",
+                    "role": "Original Developer"
+                },
+                {
+                    "name": "itbdw",
+                    "email": "itbudaoweng@gmail.com",
+                    "homepage": "http://github.com/itbdw",
+                    "role": "Developer"
+                },
+                {
+                    "name": "popfeng",
+                    "email": "popfeng@yeah.net",
+                    "homepage": "http://github.com/popfeng",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A storage library for laravel5 and qiniu sdk",
+            "keywords": [
+                "cloud",
+                "laravel",
+                "laravel5",
+                "qiniu",
+                "sdk",
+                "storage"
+            ],
+            "time": "2015-11-28 04:13:51"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1497,6 +1555,57 @@
                 "uuid"
             ],
             "time": "2016-02-27 12:09:46"
+        },
+        {
+            "name": "qiniu/php-sdk",
+            "version": "v7.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qiniu/php-sdk.git",
+                "reference": "d1bca450b56d85beb7ba21f374a47bfeb59c288b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/qiniu/php-sdk/d1bca450b56d85beb7ba21f374a47bfeb59c288b.zip",
+                "reference": "d1bca450b56d85beb7ba21f374a47bfeb59c288b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Qiniu\\": "src/Qiniu"
+                },
+                "files": [
+                    "src/Qiniu/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Qiniu",
+                    "email": "sdk@qiniu.com",
+                    "homepage": "http://www.qiniu.com"
+                }
+            ],
+            "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
+            "homepage": "http://developer.qiniu.com/",
+            "keywords": [
+                "cloud",
+                "qiniu",
+                "sdk",
+                "storage"
+            ],
+            "time": "2016-07-19 06:18:08"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -62,6 +62,14 @@ return [
             'bucket' => 'your-bucket',
         ],
 
+        'qiniu' => [
+            'driver' => 'qiniu',
+            'domain' => 'oav1949mu.bkt.clouddn.com',   //你的七牛域名
+            'access_key'    => 'x1jLjMsJKDUJCUGqrSVjWFDqvoBwP1NCjAaqwpsu',                          //AccessKey
+            'secret_key' => 'KRADAg5FYokbx2J-yF9XzrwD10WYxt2jZtcIHU-J',                             //SecretKey
+            'bucket' => 'phpnmb',                                 //Bucket名字
+        ],
+
     ],
 
 ];
