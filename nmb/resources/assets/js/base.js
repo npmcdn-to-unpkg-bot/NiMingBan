@@ -8,10 +8,16 @@ Vue.http.options.root = '/api';
 new Vue({
   el: "div.new.form",
   data: {
-
+    board_id: "0"
   },
   ready: function(){
-
+    this.$watch("board_id", function(new_value, old_value){
+      console.log(new_value);
+      if (new_value == undefined) {
+        $("div.new.button > button").attr("disabled", "disabled");
+      }
+    });
+    this.$set("board_id", config.current_board);
   },
   methods: {
     push_data: function(event){

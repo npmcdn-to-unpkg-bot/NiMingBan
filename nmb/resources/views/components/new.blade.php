@@ -1,5 +1,11 @@
 <div class="new button">
-    <button class="uk-button uk-button-primary" data-uk-toggle="{target:'.new.form'}">来一串~</button>
+    <button
+        class="uk-button uk-button-primary"
+        data-uk-toggle="{target:'.new.form'}"
+        
+    >
+        来一串~
+    </button>
 </div>
 
 <div class="new form uk-hidden">

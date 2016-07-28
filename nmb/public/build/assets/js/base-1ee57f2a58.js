@@ -166,14 +166,14 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
             config = {};
             config.current_board = 0;
           }
-          console.log(config.current_board);
+          // console.log(config.current_board);
           this.$set("cbid", config.current_board);
 
           this.$http.get('/api/v1/boards').then(function(response){
             var items = response.json();
             this.$set("items", items);
             this.$nextTick(function () {
-              this.$log("items");
+              // this.$log("items");
               UIkit.nav(".nav > .uk-nav");
             });
           }, function(response){});
@@ -192,10 +192,16 @@ Vue.http.options.root = '/api';
 new Vue({
   el: "div.new.form",
   data: {
-
+    board_id: "0"
   },
   ready: function(){
-
+    this.$watch("board_id", function(new_value, old_value){
+      console.log(new_value);
+      if (new_value == undefined) {
+        $("div.new.button > button").attr("disabled", "disabled");
+      }
+    });
+    this.$set("board_id", config.current_board);
   },
   methods: {
     push_data: function(event){
