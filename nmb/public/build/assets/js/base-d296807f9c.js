@@ -196,7 +196,7 @@ new Vue({
   },
   ready: function(){
     this.$watch("board_id", function(new_value, old_value){
-      console.log(new_value);
+      // console.log(new_value);
       if (new_value == undefined) {
         $("div.new.button > button").attr("disabled", "disabled");
       }
@@ -207,11 +207,16 @@ new Vue({
     push_data: function(event){
       var url = "/api/v1/posts";
       var options = {};
+      var post_id = config.current_post_id;
+      if (this.post_id && this.post_id != "0"){
+        post_id = this.post_id;
+      }
       options.params = {
         board_id: config.current_board,
         page: config.current_page,
-        post_id: config.current_post_id
+        post_id: post_id
       };
+      console.log(config.current_board);
       options.headers = {
         "X-CSRF-TOKEN": this.csrf_token
       };

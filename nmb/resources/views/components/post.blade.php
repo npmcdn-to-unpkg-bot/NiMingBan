@@ -52,7 +52,7 @@
             </span>
         </div>
         <div class="post tooltip" v-if="(post.hidden_count > 0) & (post_id == 0)">
-            <a href="/board?board={{ $board_id}}&post_id=@{{ post.id }}&page=1">
+            <a href="/board?board_id={{ $board_id}}&post_id=@{{ post.id }}&page=1">
                 …有@{{ post.hidden_count }}条被隐藏，点击进入详情页查看
             </a>
         </div>
