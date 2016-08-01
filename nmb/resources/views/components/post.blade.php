@@ -2,7 +2,9 @@
     <div class="posts-entry uk-width-1-1" v-for="post in posts">
         <div class="post first">
             <template v-if="post.image">
-                <img src="@{{ post.image }}">
+                <a href="" :href="post.image" data-uk-lightbox title="post image">
+                    <img :src="post.image">
+                </a>
             </template>
             <span>
                 <div class="head">
@@ -58,8 +60,11 @@
         </div>
         <div class="post item" v-for="subpost in post.subs">
             <template v-if="subpost.image">
-                <img src="http://cdn.ovear.info:8998/image/2016-06-26/576f4980070d7.jpg">
+                <a href="" :href="subpost.image" data-uk-lightbox title="subpost image">
+                    <img :src="subpost.image">
+                </a>
             </template>
+
             <span>
                 <div class="head">
                     <span class="title">

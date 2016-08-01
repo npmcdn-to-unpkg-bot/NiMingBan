@@ -39,14 +39,20 @@
             this.$set("posts", post_list_obj.data);
             this.$set("paginate", post_list_obj.paginate);
 
-            var pagination = UIkit.pagination(
-                              ".pagination > .uk-pagination",
-                              {
-                                "pages" : this.paginate.pages,
-                                "currentPage" : this.paginate.current_page - 1,
-                                "onSelectPage": this.reload_content
-                              }
-                            );
+            this.$nextTick(function () {
+              // var all_lightbox = UIkit.lightbox(".post.first > a[title='post image']");
+              // var all_sub_lightbox = UIkit.lightbox(".post.item > a[title='subpost image']");
+              var pagination = UIkit.pagination(
+                                ".pagination > .uk-pagination",
+                                {
+                                  "pages" : this.paginate.pages,
+                                  "currentPage" : this.paginate.current_page - 1,
+                                  "onSelectPage": this.reload_content
+                                }
+                              );
+            });
+
+
 
             // // paginate url
             // var base_paginate_url = "/board/?";

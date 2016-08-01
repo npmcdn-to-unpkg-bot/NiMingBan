@@ -34,6 +34,7 @@ elixir(function(mix) {
       "../bower/jquery/dist/jquery.min.js",
       "../bower/uikit/js/uikit.min.js",
       "../bower/uikit/js/components/pagination.js",
+      "../bower/uikit/js/components/lightbox.js",
       "menu.js",
       "base.js"
     ],
