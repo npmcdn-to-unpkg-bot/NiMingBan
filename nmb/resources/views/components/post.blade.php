@@ -1,4 +1,5 @@
 <div class="posts-board uk-container">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" v-model="csrf_token">
     <div class="posts-entry uk-width-1-1" v-for="post in posts">
         <div class="post first">
             <template v-if="post.image">
@@ -50,7 +51,9 @@
                         [回应]
                     </span>
                     <span class="report">
-                    [举报]
+                        <a href="javascript:;" @click="report_post_model($event, post.id)">
+                            举报
+                        </a>
                     </span>
                     <span class="subscribe">
                     [订阅]

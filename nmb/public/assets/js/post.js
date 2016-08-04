@@ -8,7 +8,8 @@
             page: "1",
             post_id: "0",
             board_obj: {},
-            paginate: {}
+            paginate: {},
+            csrf_token: ""
         },
         ready: function(){
           var options = {};
@@ -75,6 +76,38 @@
 
             window.location.href = page_url;
 
+          },
+          report_post: function(post_id, content){
+            var url = "/api/v1/reports";
+
+            var options = {};
+            options.headers = {
+              "X-CSRF-TOKEN": this.csrf_token
+            };
+
+            var body = {
+              post_id: post_id,
+              content: content
+            }
+
+            this.$http.post(url, body, options).then(
+              function(response){
+                UIkit.notify({
+                  message : '举报成功...',
+                  status  : 'danger',
+                  timeout : 5000,
+                  pos     : 'top-right'
+                });
+                console.log(response);
+              },
+              function(response){}
+            );
+          },
+          report_post_model: function(event, post_id){
+            var vm = this;
+            UIkit.modal.prompt("举报理由:", "", function(newvalue){
+              vm.report_post(post_id, newvalue);
+            });
           }
         }
 

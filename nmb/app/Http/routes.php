@@ -20,4 +20,5 @@ Route::get("/board", "RenderController@board");
 Route::group(["prefix" => "api/v1"], function(){
     Route::resource('/posts', 'api\v1\PostController');
     Route::resource('/boards', 'api\v1\BoardController');
+    Route::resource('/reports', 'api\v1\ReportController');
 });

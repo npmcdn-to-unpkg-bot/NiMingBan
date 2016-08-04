@@ -2,14 +2,13 @@
     <button
         class="uk-button uk-button-primary"
         data-uk-toggle="{target:'.new.form'}"
-        
+
     >
         来一串~
     </button>
 </div>
 
 <div class="new form uk-hidden">
-    {!! csrf_field() !!}
     <input type="hidden" name="_token" value="{{ csrf_token() }}" v-model="csrf_token">
     <form class="uk-form uk-form-stacked">
         <div class="uk-form-row">
