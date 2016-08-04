@@ -17,6 +17,7 @@ elixir(function(mix) {
     [
       "../bower/normalize-css/normalize.css",
       "../bower/uikit/css/uikit.almost-flat.min.css",
+      "../bower/uikit/css/components/notify.almost-flat.min.css",
       "layouts/side-menu.css",
       "main.css"
     ],
@@ -35,6 +36,7 @@ elixir(function(mix) {
       "../bower/uikit/js/uikit.min.js",
       "../bower/uikit/js/components/pagination.js",
       "../bower/uikit/js/components/lightbox.js",
+      "../bower/uikit/js/components/notify.js",
       "menu.js",
       "base.js"
     ],

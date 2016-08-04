@@ -40,6 +40,12 @@ new Vue({
       var body = this.$data;
       this.$http.post(url, body, options).then(
         function(response){
+          UIkit.notify({
+            message : '发表完成!',
+            status  : 'success',
+            timeout : 5000,
+            pos     : 'top-right'
+          });
           console.log(response);
         },
         function(response){}
