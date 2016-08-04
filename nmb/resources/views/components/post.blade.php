@@ -9,7 +9,7 @@
             <span>
                 <div class="head">
                     <span class="title">
-                        <template v-if="ok">
+                        <template v-if="post.title">
                             @{{ post.title }}
                         </template>
                         <template v-else>
@@ -17,8 +17,13 @@
                         </template>
                     </span>
                     <span class="nick">
-                        <template v-if="ok">
-                            @{{ post.nickname }}
+                        <template v-if="post.nickname">
+                            <template v-if="post.email">
+                                <a href="" :href="'mailto:'+post.email">@{{post.email}}</a>
+                            </template>
+                            <template v-else>
+                                @{{ post.nickname }}
+                            </template>
                         </template>
                         <template v-else>
                             无名氏

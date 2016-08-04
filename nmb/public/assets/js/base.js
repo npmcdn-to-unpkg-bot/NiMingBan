@@ -783,7 +783,8 @@ Vue.http.options.root = '/api';
 new Vue({
   el: "div.new.form",
   data: {
-    board_id: "0"
+    board_id: "0",
+    csrf_token: ""
   },
   ready: function(){
     this.$watch("board_id", function(new_value, old_value){

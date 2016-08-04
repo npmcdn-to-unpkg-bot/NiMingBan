@@ -78,7 +78,8 @@
 .post > span .head > span.title{
   color:slategray;
 }
-.post > span .head > span.nick{
+.post > span .head > span.nick,
+.post > span .head > span.nick > a {
   color:dimgray;
 }
 .post > span .head > span.datetime,
